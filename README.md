@@ -1,12 +1,3 @@
-# Sass-Boilerplate
-
-Based on article by sitepoint @ http://www.sitepoint.com/architecture-sass-project/
-
-## Credit to
-Thanks to the original author of the SitePoint article, Hugo Giraudel, for sharing his best practices. http://www.sitepoint.com/author/hgiraudel/
-
-## Descriptions
-
 ###Base
 
 The `base/` folder holds what we might call the boilerplate stuff for your project. In there, you might find the reset (or Normalize.css, or whatever), probably some stuff dealing with typography, and, depending on the project, maybe some other files.
