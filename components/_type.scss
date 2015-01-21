@@ -1,0 +1,72 @@
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: $color-accent-shade;
+  font-family: $font-primary;
+  font-size: $type-base;
+  font-smoothing: always;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  font-family: $paragraph-font-family;
+  font-size: $paragraph-font-size;
+  font-weight: $paragraph-font-weight;
+  line-height: $paragraph-line-height;
+  text-rendering: $paragraph-text-rendering;
+}
+
+a {
+  color: $color-secondary;
+}
+
+h1,
+.alpha {
+ font-size: $type-h1;
+}
+
+h2,
+.beta {
+ font-size: $type-h2;
+}
+
+h3,
+.gamma {
+ font-size: $type-h3;
+}
+
+h4,
+.delta {
+ font-size: $type-h4;
+}
+
+h5,
+.epsilon {
+ font-size: $type-h5;
+}
+
+h6,
+.zeta {
+ font-size: $type-h6;
+}
+
+.text-display {
+  // display styles
+}
+
+.text-headline {
+  // headline styles
+}
+
+.text-title {
+  // title styles
+}
+
+.text-subhead {
+  // subhead styles
+}
+
+.text-caption {
+  // caption styles
+}

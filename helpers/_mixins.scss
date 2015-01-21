@@ -1,0 +1,87 @@
+// =========================================================
+// Clearfix
+// =========================================================
+@mixin clearfix() {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// =========================================================
+// Cross browser opacity
+// =========================================================
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// =========================================================
+// Input Placeholder Text
+// =========================================================
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+// =========================================================
+// Media Queries
+// =========================================================
+// RANGES ~ Zurb Foundation
+// We use these functions to define ranges for various things, like media queries.
+@function lower-bound($range){
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range,1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
+
+@mixin small-only {
+  @media #{$screen} and (max-width: #{upper-bound($screen-small-range)}) {
+    @content;
+  }
+}
+
+@mixin medium-down {
+  @media #{$screen} and (max-width:#{$screen-medium}) {
+    @content;
+  }
+}
+
+@mixin medium-only {
+  @media #{$screen}
+    and (min-width:#{lower-bound($screen-medium-range)})
+    and (max-width:#{upper-bound($screen-medium-range)}) {
+    @content;
+  }
+}
+
+@mixin medium-up {
+  @media #{$screen} and (min-width:#{$screen-medium}) {
+    @content;
+  }
+}
+
+@mixin large-up {
+  @media (min-width: #{$screen-large}) {
+    @content;
+  }
+}

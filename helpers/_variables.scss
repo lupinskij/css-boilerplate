@@ -1,0 +1,46 @@
+// Colors
+$color-primary: #125790;
+$color-secondary: #629ad4;
+$color-tertiary: #feb62a;
+$color-shade: #043349;
+$color-tint: #ff0099;
+$color-accent-shade: #7e94ad;
+$color-accent-tint: #f3f9ff;
+$color-action: #f2442e;
+$color-body: #fafdff;
+
+// Font Sizes
+$type-micro: 10px;
+$type-small: 12px;
+$type-base: 14px;
+$type-h6: 16px;
+$type-h5: 18px;
+$type-h4: 22px;
+$type-h3: 24px;
+$type-h2: 28px;
+$type-h1: 32px;
+
+// We use these to style paragraphs
+$paragraph-font-family: inherit;
+$paragraph-font-weight: normal;
+$paragraph-font-size: $type-base;
+$paragraph-line-height: 1.5;
+$paragraph-text-rendering: optimizeLegibility;
+
+// Media Queries
+$screen: only screen;
+$screen-medium: 48.000em;
+$screen-large: 64.063em;
+$screen-small-range: $screen, $screen-medium;         // 0, 640px
+$screen-medium-range: $screen-medium, $screen-large;  // 641px, 1024px
+
+// Padding/Margin Blocking
+$spacing-micro: 5px;
+$spacing-small: 7px;
+$spacing-medium: 15px;
+$spacing-large: 24px;
+$spacing-xlarge: 30px;
+
+// Z-index
+$level-1: 100;
+$level-2: 200;
