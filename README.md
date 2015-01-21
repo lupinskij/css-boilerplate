@@ -1,16 +1,6 @@
-# SassLess-Boilerplate
+# Sass-Boilerplate
 
 Based on article by sitepoint @ http://www.sitepoint.com/architecture-sass-project/
-
-## Installation
-
-1. Download the contents of this repo to your less/sass directory.
-2. Begin coding.
-
-## ToDo
-
-* Write more detailed descriptions for each folder.
-* Include base files.
 
 ## Credit to
 Thanks to the original author of the SitePoint article, Hugo Giraudel, for sharing his best practices. http://www.sitepoint.com/author/hgiraudel/
