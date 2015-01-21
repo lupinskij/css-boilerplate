@@ -1,0 +1,138 @@
+@mixin above($above, $vertical: false) {
+  @if $vertical {
+    @media screen and (min-height: $above){
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $above){
+      @content;
+    }
+  }
+}
+
+@mixin below($below, $vertical: false) {
+  @if $vertical {
+    @media screen and (max-height: $below){
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $below){
+      @content;
+    }
+  }
+}
+
+@mixin between($low, $high, $vertical: false) {
+  @if $vertical {
+    @media screen and (max-height: $low), screen and (max-height: $high) {
+      @content
+    }
+  } @else {
+    @media screen and (max-width: $low), screen and (max-width: $high) {
+      @content;
+    }
+  }
+}
+
+@mixin hideAt($screen_size) {
+  @media screen and (max-width: $screen_size) {
+    display: none;
+  }
+}
+
+@mixin fullWidthAt($screen_size) {
+  @media screen and (max-width: $screen_size) {
+    width: 100%;
+  }
+}
+
+@mixin centerTextAt($screen_size) {
+  @media screen and (max-width: $screen_size) {
+    text-align: center;
+  }
+}
+
+@mixin bg-color($r, $g, $b: false, $a: false) {
+  $bg_color: #FFF;
+  $ie_8: '\0/';
+
+  @if $b {
+    $bg_color: rgba($r, $g, $b, $a);
+  } @else {
+    $bg_color: transparentize($r, 1 - $g);
+  }
+
+  background-color: opacify($bg_color, 1);
+  background-color: $bg_color;
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($bg_color)}', endColorstr='#{ie-hex-str($bg_color)}')#{$ie_8};
+  background-color: transparent#{$ie_8};
+  zoom: 1#{$ie_8};
+
+  @content;
+}
+
+@mixin pos($args...) {
+  $positions: static, absolute, fixed, relative, initial, inherit;
+  $props: top, right, bottom, left;
+  $fill: false;
+
+  // Set to fill mode if necessary.
+  @if index($args, 'fill') { $fill: true }
+
+  $i: 1;
+  @each $arg in $args {
+    @if $arg == 'fill' {} //do nothing
+
+    @else if index($positions, $arg) {
+      position: $arg;
+    }
+
+    @else if $i <= length($props) {
+      @if $arg != false {
+        #{nth($props, $i)}: $arg;
+      }
+      @else if $fill {
+        #{nth($props, $i)}: 0;
+      }
+      $i: $i + 1;
+    }
+  }
+
+  // If necessary, fill in the rest of the properties.
+  @if $fill {
+    @while $i <= length($props) {
+      #{nth($props, $i)}: 0;
+      $i: $i + 1;
+    }
+  }
+
+  @content;
+}
+
+@mixin ellipsis($width: false) {
+  @if $width { width: $width };
+  overflow:       hidden;
+  white-space:    nowrap;
+  text-overflow:  ellipsis;
+}
+
+@mixin size($width, $height: $width) {
+  width:  $width;
+  height: $height;
+}
+
+@mixin retina-background-image($name, $extension: png) {
+  background-image: url("#{$name}.#{$extension}");
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (  min--moz-device-pixel-ratio: 2),
+  only screen and (    -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("#{$name}@2x.#{$extension}");
+    background-size: cover;
+  }
+}
