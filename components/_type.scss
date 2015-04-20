@@ -2,17 +2,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   color: $color-accent-shade;
-  font-family: $font-primary;
+  font: {
+    family: $paragraph-font-family;
+    line-height: $paragraph-line-height;
+    weight: normal;
+  }
   font-smoothing: always;
-  font-weight: normal;
   text-rendering: optimizeLegibility;
   @include font-size($type-base)
 }
 
 p {
-  font-family: $paragraph-font-family;
-  font-weight: $paragraph-font-weight;
-  line-height: $paragraph-line-height;
+  font: {
+    family: $paragraph-font-family;
+    line-height: $paragraph-line-height;
+    weight: $paragraph-font-weight;
+  }
   text-rendering: $paragraph-text-rendering;
   @include font-size($paragraph-font-size)
 }
