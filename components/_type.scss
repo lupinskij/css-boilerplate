@@ -3,18 +3,18 @@ body {
   -webkit-font-smoothing: antialiased;
   color: $color-accent-shade;
   font-family: $font-primary;
-  font-size: $type-base;
   font-smoothing: always;
   font-weight: normal;
   text-rendering: optimizeLegibility;
+  @include font-size($type-base)
 }
 
 p {
   font-family: $paragraph-font-family;
-  font-size: $paragraph-font-size;
   font-weight: $paragraph-font-weight;
   line-height: $paragraph-line-height;
   text-rendering: $paragraph-text-rendering;
+  @include font-size($paragraph-font-size)
 }
 
 a {
@@ -23,32 +23,32 @@ a {
 
 h1,
 .alpha {
- font-size: $type-h1;
+  @include font-size($type-h1)
 }
 
 h2,
 .beta {
- font-size: $type-h2;
+  @include font-size($type-h2);
 }
 
 h3,
 .gamma {
- font-size: $type-h3;
+  @include font-size($type-h3);
 }
 
 h4,
 .delta {
- font-size: $type-h4;
+  @include font-size($type-h4);
 }
 
 h5,
 .epsilon {
- font-size: $type-h5;
+  @include font-size($type-h5);
 }
 
 h6,
 .zeta {
- font-size: $type-h6;
+  @include font-size($type-h6);
 }
 
 .text-display {

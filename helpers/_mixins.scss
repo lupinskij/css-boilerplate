@@ -35,6 +35,20 @@
   &::-webkit-input-placeholder { @content; }
 }
 
+
+// =========================================================
+// Font Size
+// =========================================================
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
 // =========================================================
 // Media Queries
 // =========================================================
